@@ -1,0 +1,8 @@
+{
+  "Home": "home",
+  "Google": "https://google.com",
+  "PHP Docs": "http://php.net/manual/en",
+  "Login": "register/login",
+  "register": "register/register",
+  "logout": "register/logout"
+}
