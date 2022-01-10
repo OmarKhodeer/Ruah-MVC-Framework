@@ -81,7 +81,6 @@ class Users extends Model
   public static function loginUserFromCookie()
   {
     $userSession = UserSessions::getFromCookie();
-    // dnd($userSession->user_id);
     if ($userSession && $userSession->user_id != '') {
       $user = new self((int) $userSession->user_id);
       if ($user) {

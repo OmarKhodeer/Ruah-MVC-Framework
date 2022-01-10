@@ -91,7 +91,6 @@ class RegisterController extends Controller
       ]);
 
       if ($validation->passed()) {
-        // dnd('pass');
         $newUser = new Users();
         $newUser->registerNewUser($_POST);
         Router::redirect('register/login');

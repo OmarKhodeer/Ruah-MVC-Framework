@@ -72,6 +72,7 @@ class DB
         foreach ($params['conditions'] as $column => $value) {
           $conditionString .= " $column = $value AND";
         }
+        $conditionString = trim($conditionString);
         $conditionString = rtrim($conditionString, ' AND');
       } else {
         $conditionString = $params['conditions'];

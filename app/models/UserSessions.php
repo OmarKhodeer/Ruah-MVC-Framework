@@ -17,7 +17,6 @@ class UserSessions extends Model
         'bind' => [Session::uagent_no_version(), Cookie::get(REMEMBER_ME_COOKIE_NAME)]
       ]);
     }
-    // dnd($userSession);
 
     if (!$userSession) return false;
 
