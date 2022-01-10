@@ -13,7 +13,7 @@ class UserSessions extends Model
     if (Cookie::exists(REMEMBER_ME_COOKIE_NAME)) {
       $userSession = new self();
       $userSession = $userSession->findFirst([
-        'conditions' => ['user_agent' => '?', 'session' => '?'],
+        'conditions' => ['user_agent = ?', 'session = ?'],
         'bind' => [Session::uagent_no_version(), Cookie::get(REMEMBER_ME_COOKIE_NAME)]
       ]);
     }

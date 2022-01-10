@@ -69,8 +69,8 @@ class DB
     // conditions
     if (isset($params['conditions'])) {
       if (is_array($params['conditions'])) {
-        foreach ($params['conditions'] as $column => $value) {
-          $conditionString .= " $column = $value AND";
+        foreach ($params['conditions'] as $condition) {
+          $conditionString .= " $condition AND";
         }
         $conditionString = trim($conditionString);
         $conditionString = rtrim($conditionString, ' AND');

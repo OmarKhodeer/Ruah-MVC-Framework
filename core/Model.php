@@ -35,12 +35,12 @@ class Model
     if ($this->_softDelete) {
       if (array_key_exists('conditions', $params)) {
         if (is_array($params['conditions'])) {
-          $params['conditions']['deleted'] = 0;
+          $params['conditions'][] = "(deleted != 1 OR deleted IS NULL)";
         } else {
-          $params['conditions'] .= 'AND deleted = 0';
+          $params['conditions'] .= ' AND (deleted != 1 OR deleted IS NULL)';
         }
       } else {
-        $params['conditions'] = 'deleted = 0';
+        $params['conditions'] = '(deleted != 1 OR deleted IS NULL)';
       }
     }
     return $params;
@@ -76,7 +76,7 @@ class Model
   public function findById($id)
   {
     $params = [
-      'conditions' => ['id' => '?'],
+      'conditions' => ['id = ?'],
       'bind' => [$id]
     ];
     $params = $this->_softDeleteParams($params);

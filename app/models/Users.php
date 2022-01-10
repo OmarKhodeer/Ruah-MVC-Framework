@@ -14,12 +14,12 @@ class Users extends Model
     if ($user != '') {
       if (is_int($user)) { // check if $user is an int then find user by id.
         $u = $this->_db->findFirst('users', [
-          'conditions' => ['id' => '?'],
+          'conditions' => ['id = ?'],
           'bind' => [$user]
         ]);
       } else { // if $user not int then find user by username.
         $u = $this->_db->findFirst('users', [
-          'conditions' => ['username' => '?'],
+          'conditions' => ['username = ?'],
           'bind' => [$user]
         ]);
       }
@@ -36,7 +36,7 @@ class Users extends Model
   public function findByUsername($username)
   {
     return $this->findFirst([
-      'conditions' => ['username' => '?'],
+      'conditions' => ['username = ?'],
       'bind' => [$username]
     ]);
   }
